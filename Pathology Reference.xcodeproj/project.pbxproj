@@ -1,0 +1,344 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDA0486C1FB753A300CCA802 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0486B1FB753A300CCA802 /* AppDelegate.swift */; };
+		EDA0486E1FB753A300CCA802 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0486D1FB753A300CCA802 /* ViewController.swift */; };
+		EDA048711FB753A300CCA802 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA0486F1FB753A300CCA802 /* Main.storyboard */; };
+		EDA048741FB753A300CCA802 /* Pathology_Reference.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDA048721FB753A300CCA802 /* Pathology_Reference.xcdatamodeld */; };
+		EDA048761FB753A300CCA802 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA048751FB753A300CCA802 /* Assets.xcassets */; };
+		EDA048791FB753A300CCA802 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA048771FB753A300CCA802 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EDA048681FB753A300CCA802 /* Pathology Reference.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pathology Reference.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDA0486B1FB753A300CCA802 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDA0486D1FB753A300CCA802 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDA048701FB753A300CCA802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDA048731FB753A300CCA802 /* Pathology_Reference.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pathology_Reference.xcdatamodel; sourceTree = "<group>"; };
+		EDA048751FB753A300CCA802 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDA048781FB753A300CCA802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDA0487A1FB753A300CCA802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDA048651FB753A300CCA802 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDA0485F1FB753A300CCA802 = {
+			isa = PBXGroup;
+			children = (
+				EDA0486A1FB753A300CCA802 /* Pathology Reference */,
+				EDA048691FB753A300CCA802 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDA048691FB753A300CCA802 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDA048681FB753A300CCA802 /* Pathology Reference.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDA0486A1FB753A300CCA802 /* Pathology Reference */ = {
+			isa = PBXGroup;
+			children = (
+				EDA0486B1FB753A300CCA802 /* AppDelegate.swift */,
+				EDA0486D1FB753A300CCA802 /* ViewController.swift */,
+				EDA0486F1FB753A300CCA802 /* Main.storyboard */,
+				EDA048751FB753A300CCA802 /* Assets.xcassets */,
+				EDA048771FB753A300CCA802 /* LaunchScreen.storyboard */,
+				EDA0487A1FB753A300CCA802 /* Info.plist */,
+				EDA048721FB753A300CCA802 /* Pathology_Reference.xcdatamodeld */,
+			);
+			path = "Pathology Reference";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDA048671FB753A300CCA802 /* Pathology Reference */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDA0487D1FB753A300CCA802 /* Build configuration list for PBXNativeTarget "Pathology Reference" */;
+			buildPhases = (
+				EDA048641FB753A300CCA802 /* Sources */,
+				EDA048651FB753A300CCA802 /* Frameworks */,
+				EDA048661FB753A300CCA802 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pathology Reference";
+			productName = "Pathology Reference";
+			productReference = EDA048681FB753A300CCA802 /* Pathology Reference.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDA048601FB753A300CCA802 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Denkensohn;
+				TargetAttributes = {
+					EDA048671FB753A300CCA802 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = EDA048631FB753A300CCA802 /* Build configuration list for PBXProject "Pathology Reference" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDA0485F1FB753A300CCA802;
+			productRefGroup = EDA048691FB753A300CCA802 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDA048671FB753A300CCA802 /* Pathology Reference */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDA048661FB753A300CCA802 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA048791FB753A300CCA802 /* LaunchScreen.storyboard in Resources */,
+				EDA048761FB753A300CCA802 /* Assets.xcassets in Resources */,
+				EDA048711FB753A300CCA802 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDA048641FB753A300CCA802 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA048741FB753A300CCA802 /* Pathology_Reference.xcdatamodeld in Sources */,
+				EDA0486E1FB753A300CCA802 /* ViewController.swift in Sources */,
+				EDA0486C1FB753A300CCA802 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EDA0486F1FB753A300CCA802 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA048701FB753A300CCA802 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDA048771FB753A300CCA802 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDA048781FB753A300CCA802 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDA0487B1FB753A300CCA802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDA0487C1FB753A300CCA802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDA0487E1FB753A300CCA802 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y27SKNRN66;
+				INFOPLIST_FILE = "Pathology Reference/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "denkensohn.Pathology-Reference";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDA0487F1FB753A300CCA802 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y27SKNRN66;
+				INFOPLIST_FILE = "Pathology Reference/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "denkensohn.Pathology-Reference";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDA048631FB753A300CCA802 /* Build configuration list for PBXProject "Pathology Reference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA0487B1FB753A300CCA802 /* Debug */,
+				EDA0487C1FB753A300CCA802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDA0487D1FB753A300CCA802 /* Build configuration list for PBXNativeTarget "Pathology Reference" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA0487E1FB753A300CCA802 /* Debug */,
+				EDA0487F1FB753A300CCA802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EDA048721FB753A300CCA802 /* Pathology_Reference.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EDA048731FB753A300CCA802 /* Pathology_Reference.xcdatamodel */,
+			);
+			currentVersion = EDA048731FB753A300CCA802 /* Pathology_Reference.xcdatamodel */;
+			path = Pathology_Reference.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EDA048601FB753A300CCA802 /* Project object */;
+}
