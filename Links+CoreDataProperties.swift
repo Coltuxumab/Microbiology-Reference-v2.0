@@ -2,7 +2,7 @@
 //  Links+CoreDataProperties.swift
 //  Microbiology Reference
 //
-//  Created by Cole Denkensohn on 3/4/18.
+//  Created by Cole Denkensohn on 3/11/18.
 //  Copyright © 2018 Denkensohn. All rights reserved.
 //
 //
@@ -21,7 +21,7 @@ extension Links {
     @NSManaged public var related_disease: NSSet?
     @NSManaged public var related_general: NSSet?
     @NSManaged public var related_gramstain: NSSet?
-    @NSManaged public var related_keypoints: NSSet?
+    @NSManaged public var related_transmission: NSSet?
     @NSManaged public var related_laboratory: NSSet?
     @NSManaged public var related_morphology: NSSet?
     @NSManaged public var related_prevention: NSSet?
@@ -83,20 +83,20 @@ extension Links {
 
 }
 
-// MARK: Generated accessors for related_keypoints
+// MARK: Generated accessors for related_transmission
 extension Links {
 
-    @objc(addRelated_keypointsObject:)
-    @NSManaged public func addToRelated_keypoints(_ value: KeyPoints)
+    @objc(addRelated_transmissionObject:)
+    @NSManaged public func addToRelated_transmission(_ value: Transmission)
 
-    @objc(removeRelated_keypointsObject:)
-    @NSManaged public func removeFromRelated_keypoints(_ value: KeyPoints)
+    @objc(removeRelated_transmissionObject:)
+    @NSManaged public func removeFromRelated_transmission(_ value: Transmission)
 
-    @objc(addRelated_keypoints:)
-    @NSManaged public func addToRelated_keypoints(_ values: NSSet)
+    @objc(addRelated_transmission:)
+    @NSManaged public func addToRelated_transmission(_ values: NSSet)
 
-    @objc(removeRelated_keypoints:)
-    @NSManaged public func removeFromRelated_keypoints(_ values: NSSet)
+    @objc(removeRelated_transmission:)
+    @NSManaged public func removeFromRelated_transmission(_ values: NSSet)
 
 }
 

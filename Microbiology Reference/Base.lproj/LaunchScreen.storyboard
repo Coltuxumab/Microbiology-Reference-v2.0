@@ -24,8 +24,8 @@
                                     <constraint firstAttribute="height" constant="200" id="cBs-LT-RDe"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v 2.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-Ye-D76">
-                                <rect key="frame" x="317" y="626" width="38" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v 2.1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nT0-Ye-D76">
+                                <rect key="frame" x="320.5" y="626" width="34.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -34,6 +34,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nT0-Ye-D76" secondAttribute="bottom" constant="20" id="48c-SE-P45"/>
+                            <constraint firstItem="nT0-Ye-D76" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" symbolic="YES" id="HQY-Sw-6md"/>
                             <constraint firstItem="sdP-Bi-LwM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="R1k-ac-Pkh"/>
                             <constraint firstAttribute="trailing" secondItem="nT0-Ye-D76" secondAttribute="trailing" constant="20" id="bsb-OU-Rmc"/>
                             <constraint firstItem="sdP-Bi-LwM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hVb-QL-Q58"/>

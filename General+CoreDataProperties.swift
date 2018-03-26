@@ -2,7 +2,7 @@
 //  General+CoreDataProperties.swift
 //  Microbiology Reference
 //
-//  Created by Cole Denkensohn on 3/4/18.
+//  Created by Cole Denkensohn on 3/10/18.
 //  Copyright © 2018 Denkensohn. All rights reserved.
 //
 //
@@ -18,6 +18,7 @@ extension General {
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var important: Bool
     @NSManaged public var related_bug: NSSet?
     @NSManaged public var related_link: Links?
 

@@ -4,17 +4,16 @@
         <attribute name="last_accessed" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="match_basis" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="related_diagnosis" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_diagnosis" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_disease" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Disease" inverseName="related_bug" inverseEntity="Disease" syncable="YES"/>
         <relationship name="related_entity" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="RelatedEntity" inverseName="related_bug" inverseEntity="RelatedEntity" syncable="YES"/>
         <relationship name="related_general" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="General" inverseName="related_bug" inverseEntity="General" syncable="YES"/>
         <relationship name="related_gramstain" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GramStain" inverseName="related_bug" inverseEntity="GramStain" syncable="YES"/>
-        <relationship name="related_keypoints" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="KeyPoints" inverseName="related_bug" inverseEntity="KeyPoints" syncable="YES"/>
         <relationship name="related_laboratory" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Laboratory" inverseName="related_bug" inverseEntity="Laboratory" syncable="YES"/>
         <relationship name="related_morphology" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Morphology" inverseName="related_bug" inverseEntity="Morphology" syncable="YES"/>
-        <relationship name="related_prevention" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Prevention" inverseName="related_bug" inverseEntity="Prevention" syncable="YES"/>
+        <relationship name="related_prevention" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Prevention" inverseName="related_bug" inverseEntity="Prevention" syncable="YES"/>
         <relationship name="related_signs" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Signs" inverseName="related_bug" inverseEntity="Signs" syncable="YES"/>
         <relationship name="related_source" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sources" inverseName="related_bug" inverseEntity="Sources" syncable="YES"/>
+        <relationship name="related_transmission" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Transmission" inverseName="related_bug" inverseEntity="Transmission" syncable="YES"/>
         <relationship name="related_treatments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Treatment" inverseName="related_bug" inverseEntity="Treatment" syncable="YES"/>
         <relationship name="related_type" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Type" inverseName="related_bug" inverseEntity="Type" syncable="YES"/>
     </entity>
@@ -34,11 +33,13 @@
         <attribute name="phrase" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Disease" representedClassName="Disease" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_disease" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_disease" inverseEntity="Links" syncable="YES"/>
     </entity>
     <entity name="General" representedClassName="General" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_general" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_general" inverseEntity="Links" syncable="YES"/>
@@ -48,12 +49,8 @@
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_gramstain" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_gramstain" inverseEntity="Links" syncable="YES"/>
     </entity>
-    <entity name="KeyPoints" representedClassName="KeyPoints" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_keypoints" inverseEntity="Bugs" syncable="YES"/>
-        <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_keypoints" inverseEntity="Links" syncable="YES"/>
-    </entity>
     <entity name="Laboratory" representedClassName="Laboratory" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_laboratory" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_laboratory" inverseEntity="Links" syncable="YES"/>
@@ -63,12 +60,12 @@
         <relationship name="related_disease" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Disease" inverseName="related_link" inverseEntity="Disease" syncable="YES"/>
         <relationship name="related_general" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="General" inverseName="related_link" inverseEntity="General" syncable="YES"/>
         <relationship name="related_gramstain" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GramStain" inverseName="related_link" inverseEntity="GramStain" syncable="YES"/>
-        <relationship name="related_keypoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KeyPoints" inverseName="related_link" inverseEntity="KeyPoints" syncable="YES"/>
         <relationship name="related_laboratory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Laboratory" inverseName="related_link" inverseEntity="Laboratory" syncable="YES"/>
         <relationship name="related_morphology" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Morphology" inverseName="related_link" inverseEntity="Morphology" syncable="YES"/>
         <relationship name="related_prevention" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Prevention" inverseName="related_link" inverseEntity="Prevention" syncable="YES"/>
         <relationship name="related_signs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Signs" inverseName="related_link" inverseEntity="Signs" syncable="YES"/>
         <relationship name="related_sources" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sources" inverseName="related_link" inverseEntity="Sources" syncable="YES"/>
+        <relationship name="related_transmission" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transmission" inverseName="related_link" inverseEntity="Transmission" syncable="YES"/>
         <relationship name="related_treatment" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Treatment" inverseName="related_link" inverseEntity="Treatment" syncable="YES"/>
         <relationship name="related_type" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Type" inverseName="related_link" inverseEntity="Type" syncable="YES"/>
     </entity>
@@ -78,6 +75,7 @@
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_morphology" inverseEntity="Links" syncable="YES"/>
     </entity>
     <entity name="Prevention" representedClassName="Prevention" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_prevention" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_prevention" inverseEntity="Links" syncable="YES"/>
@@ -91,6 +89,7 @@
         <attribute name="lastUpdateCheck" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <entity name="Signs" representedClassName="Signs" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_signs" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_signs" inverseEntity="Links" syncable="YES"/>
@@ -100,7 +99,14 @@
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_source" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_sources" inverseEntity="Links" syncable="YES"/>
     </entity>
+    <entity name="Transmission" representedClassName="Transmission" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_transmission" inverseEntity="Bugs" syncable="YES"/>
+        <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_transmission" inverseEntity="Links" syncable="YES"/>
+    </entity>
     <entity name="Treatment" representedClassName="Treatment" syncable="YES">
+        <attribute name="important" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="related_bug" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bugs" inverseName="related_treatments" inverseEntity="Bugs" syncable="YES"/>
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_treatment" inverseEntity="Links" syncable="YES"/>
@@ -111,24 +117,24 @@
         <relationship name="related_link" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Links" inverseName="related_type" inverseEntity="Links" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bugs" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="Bugs" positionX="-63" positionY="-18" width="128" height="270"/>
         <element name="Data_Acronyms" positionX="9" positionY="144" width="128" height="75"/>
         <element name="Data_CateogryRestricted" positionX="0" positionY="135" width="128" height="75"/>
         <element name="Data_Definitions" positionX="-18" positionY="117" width="128" height="75"/>
         <element name="Data_Phrases" positionX="-9" positionY="126" width="128" height="60"/>
-        <element name="Disease" positionX="-36" positionY="54" width="128" height="90"/>
-        <element name="General" positionX="0" positionY="90" width="128" height="90"/>
+        <element name="Disease" positionX="-36" positionY="54" width="128" height="105"/>
+        <element name="General" positionX="0" positionY="90" width="128" height="105"/>
         <element name="GramStain" positionX="9" positionY="99" width="128" height="90"/>
-        <element name="KeyPoints" positionX="-9" positionY="81" width="128" height="90"/>
-        <element name="Laboratory" positionX="-27" positionY="54" width="128" height="90"/>
+        <element name="Laboratory" positionX="-27" positionY="54" width="128" height="105"/>
         <element name="Links" positionX="-18" positionY="117" width="128" height="225"/>
         <element name="Morphology" positionX="18" positionY="117" width="128" height="90"/>
-        <element name="Prevention" positionX="-27" positionY="72" width="128" height="90"/>
+        <element name="Prevention" positionX="-27" positionY="72" width="128" height="105"/>
         <element name="RelatedEntity" positionX="0" positionY="126" width="128" height="75"/>
         <element name="Settings" positionX="0" positionY="99" width="128" height="75"/>
-        <element name="Signs" positionX="-18" positionY="72" width="128" height="90"/>
+        <element name="Signs" positionX="-18" positionY="72" width="128" height="105"/>
         <element name="Sources" positionX="-27" positionY="63" width="128" height="90"/>
-        <element name="Treatment" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="Transmission" positionX="-9" positionY="81" width="128" height="105"/>
+        <element name="Treatment" positionX="-36" positionY="9" width="128" height="105"/>
         <element name="Type" positionX="-18" positionY="72" width="128" height="90"/>
     </elements>
 </model>

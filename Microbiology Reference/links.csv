@@ -1,6 +1,8 @@
 Item,Link
+Gram positive,https://upload.medbullets.com/topic/104192/images/gram%20positive%20by%20moises%20dominguez%20corrected.jpg
+Gram negative,https://upload.medbullets.com/topic/104193/images/gram%20negative%20-%20moises%20dominguez.jpg
 Serology,https://en.wikipedia.org/wiki/Serology
-Nucleic Acid Amplification Test,https://en.wikipedia.org/wiki/Nucleic_acid_test
+Nucleic Acid Amplification Test (NAAT),https://en.wikipedia.org/wiki/Nucleic_acid_test
 HAART,https://aidsinfo.nih.gov/guidelines/html/1/adult-and-adolescent-arv-guidelines/11/what-to-start
 Endemic relapsing fever,https://emedicine.medscape.com/article/227272-overview
 Q fever,https://en.wikipedia.org/wiki/Q_fever
@@ -10,20 +12,160 @@ Kaposi Sarcoma (Wikipedia),https://en.m.wikipedia.org/wiki/Kaposi%27s_sarcoma-as
 Erythema migrans,https://en.wikipedia.org/wiki/Erythema_chronicum_migrans
 Schaechter's Mechanisms of Microbial Disease,https://books.google.com/books/about/Schaechter_s_Mechanisms_of_Microbial_Dis.html?id=1Zl70SLDU3oC
 E. lentum (NCBI),https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4063850/
-HepB Serology (CDC),https://www.cdc.gov/hepatitis/hbv/pdfs/serologicchartv8.pdf
-PREP,https://www.cdc.gov/std/tg2015/clinical.htm#prep
+Hep B Serology (CDC),https://www.cdc.gov/hepatitis/hbv/pdfs/serologicchartv8.pdf
+PrEP: Pre-exposure prophylaxis,https://www.cdc.gov/std/tg2015/clinical.htm#prep
 KOH prep -> Spaghetti and meatball appearance,https://img.medscapestatic.com/pi/meds/ckb/66/43166tn.jpg
-Pityriasis/tinea versicolor,https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tinea_versicolor1.jpg/510px-Tinea_versicolor1.jpg
+Hypo and hyper pigmented skin patches,https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Tinea_versicolor1.jpg/510px-Tinea_versicolor1.jpg
 Potts disease,https://en.m.wikipedia.org/wiki/Pott_disease
-Sequestration,https://drive.google.com/open?id=0B--fNq9GhKcdNjZIQWVrYlVMU0U; Invades RBCs of any age
-Headphones,https://drive.google.com/file/d/0B--fNq9GhKcdd0QyeDQ0VFVjN28/view?usp=sharing
+Sequestration,https://drive.google.com/open?id=0B--fNq9GhKcdNjZIQWVrYlVMU0U
+Headphone ring shapes,https://drive.google.com/file/d/0B--fNq9GhKcdd0QyeDQ0VFVjN28/view?usp=sharing
 Banana-shaped gametocyte,https://drive.google.com/file/d/0B--fNq9GhKcdb1RmNXo2OElQTk0/view?usp=sharing
 Rapid Diagnostic Test (RDT),https://www.cdc.gov/malaria/diagnosis_treatment/rdt.html
 Crushed ping pong balls,https://library.med.utah.edu/WebPath/jpeg2/AIDS008.jpg
-Single lateral spine,https://upload.wikimedia.org/wikipedia/commons/9/9a/Schistosoma_mansoni_egg_4841_lores.jpg
-Single spine on end,https://upload.wikimedia.org/wikipedia/commons/f/f2/Schistosoma_haematobium_egg_4843_lores.jpg
-Schistosomiasis,https://en.wikipedia.org/wiki/Schistosomiasis
+Schistosomiasis,https://www.cdc.gov/parasites/schistosomiasis/
 Trichomonas (Wikipedia),https://en.wikipedia.org/wiki/Trichomonas_vaginalis
 Wolbachia (Wikipedia),https://en.wikipedia.org/wiki/Wolbachia
 Vesicular lesions (dew drops on a rose petal),https://4.bp.blogspot.com/-h6SRM2-8VWQ/TwChsh8W6EI/AAAAAAAAAOc/InmymMowONE/s1600/dewonrosepetal.jpg
 Erysipelas,https://img.medscapestatic.com/pi/meds/ckb/27/27527.jpg
+Broad based budding,https://upload.wikimedia.org/wikipedia/commons/e/ee/Blastomyces_dermatitidis_GMS.jpeg
+Aspergilloma,https://upload.wikimedia.org/wikipedia/commons/b/b9/Aspergillome_TDM_2.JPG
+Stormy fermentation,https://c2.staticflickr.com/4/3831/9233639115_af47463b26_b.jpg
+Coccidiomycosis,https://www.cdc.gov/fungal/diseases/coccidioidomycosis/index.html
+Colorado Tick Fever,https://www.cdc.gov/coloradotickfever/
+"""Chinese letters""",https://c1.staticflickr.com/9/8090/8578535679_029ae2bdc8.jpg
+Diphtheria pseudomembrane,https://emedicine.medscape.com/article/782051-clinical
+Fitz-Hugh-Curtis syndrome,https://emedicine.medscape.com/article/256448-overview
+Chlamydia,https://www.cdc.gov/std/chlamydia/default.htm
+Gonorrhea,https://www.cdc.gov/std/gonorrhea/default.htm
+"Hand, foot, and mouth disease",https://www.cdc.gov/hand-foot-mouth/index.html
+Herpangina,https://emedicine.medscape.com/article/218502-overview
+Pleurodynia,https://emedicine.medscape.com/article/300049-overview
+Crimean-Congo Hemorrhagic Fever,https://www.cdc.gov/vhf/crimean-congo/index.html
+HAART,https://www.cdc.gov/actagainstaids/campaigns/hivtreatmentworks/stayincare/treatment.html
+Crypto,https://www.cdc.gov/parasites/crypto/index.html
+Crypto oval body,https://pixnio.com/free-images/science/microscopy-images/cryptosporidiosis-cryptosporidium/photomicrograph-revealed-the-morphologic-details-of-cryptosporidium-parvum-oocysts-533x544.jpg
+Periventricular calcifications,https://pedclerk.bsd.uchicago.edu/sites/pedclerk.uchicago.edu/files/uploads/periventricular_0.jpg
+CMV Retinitis,https://www.aao.org/detail/image.axd?id=d96fdd75-ae12-41c3-8c4a-96c5d48176d5&t=635858790664370000
+Dengue,https://www.cdc.gov/dengue/index.html
+Hemorrhagic fever,https://www.cdc.gov/vhf/index.html
+Diphyllobothrium (CDC),https://www.cdc.gov/parasites/diphyllobothrium/
+Winterbottom's sign,https://en.wikipedia.org/wiki/Winterbottom%27s_sign
+Loiasis,https://www.cdc.gov/parasites/loiasis/
+Calabar swellings,https://web.stanford.edu/class/humbio103/ParaSites2001/loiasis/calabar.jpg
+Eastern Equine Encephalitis,https://www.cdc.gov/easternequineencephalitis/index.html
+Ebola Hemorrhagic Fever,https://www.cdc.gov/vhf/ebola/index.html
+Marburg Hemorrhagic Fever,https://www.cdc.gov/vhf/marburg/index.html
+Hantavirus Pulmonary Syndrome,https://www.cdc.gov/hantavirus/hps/index.html
+Hemorrhagic fever with renal syndrome,https://www.cdc.gov/hantavirus/hfrs/index.html
+Ehrlichiosis,https://www.cdc.gov/ehrlichiosis/
+Target-shaped nucleus,https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Entamoeba_histolytica.jpg/1024px-Entamoeba_histolytica.jpg
+Flask-shaped colonic ulcers,https://img.medscapestatic.com/fullsize/migrated/441/223/iim441223.fig2b.jpg
+Hemolytic uremic syndrome,https://emedicine.medscape.com/article/201181-overview
+Stacked brick appearance,https://www.researchgate.net/profile/Henri_De_Greve/publication/221828425/figure/fig3/AS:203008223780913@1425412340781/Aggregative-stacked-brick-adherence-to-cultured-intestinal-epithelial-cells-Outbreak.png
+Traveler's diarrhea,https://wwwnc.cdc.gov/travel/yellowbook/2018/the-pre-travel-consultation/travelers-diarrhea
+Tularemia,https://www.cdc.gov/tularemia/
+Lemierre's syndrome,https://en.wikipedia.org/wiki/Lemierre%27s_syndrome
+Bacterial vaginosis,https://www.cdc.gov/std/bv/stdfact-bacterial-vaginosis.htm
+Giardiasis,https://www.cdc.gov/parasites/giardia/index.html
+Pear-shaped trophozoite,https://www.cdc.gov/parasites/giardia/images/giardia_troph_giemsa.jpg
+Hib conjugate vaccine,https://www.cdc.gov/vaccines/hcp/vis/vis-statements/hib.html
+Curved spiral shape,https://microbewiki.kenyon.edu/images/d/d6/H%26E_stain.jpg
+Hep A Vaccine,https://www.cdc.gov/vaccines/hcp/vis/vis-statements/hep-a.html
+Standard precautions,https://www.cdc.gov/infectioncontrol/guidelines/isolation/index.html#r4
+Hep B Vaccine,https://www.cdc.gov/vaccines/vpd/hepb/public/index.html
+Sofosbuvir,https://en.wikipedia.org/wiki/Sofosbuvir
+Acute ascending encephalomyelitis,https://www.cdc.gov/herpesbvirus/signs-symptoms.html
+Temporal lobe enhancement,https://img.medscapestatic.com/pi/meds/ckb/15/29915tn.jpg
+Herpes labialis,https://img.medscapestatic.com/pi/meds/ckb/30/29530.jpg
+Erythema multiforme,https://emedicine.medscape.com/article/1122915-overview
+TORCH,https://www.medscape.com/viewarticle/472409
+Histoplasmosis,https://www.cdc.gov/fungal/diseases/histoplasmosis/index.html
+Ohio/Mississippi River valley region,https://www.cdc.gov/fungal/diseases/histoplasmosis/images/histoplasmosis-lifecycle-maps-300px.jpg
+Southwest US,https://www.cdc.gov/features/valleyfever/coccidio-distributionmap-300px.jpg
+Pap smear,https://www.uspreventiveservicestaskforce.org/Page/Document/UpdateSummaryFinal/cervical-cancer-screening
+Influenza Vaccine (inactivated),https://www.cdc.gov/flu/professionals/vaccination/index.htm
+Can oseltamivir (Tamiflu) prevent complications?,https://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0072642/
+Japanese Encephalitis,https://www.cdc.gov/japaneseencephalitis/
+Progressive Multifocal Leukoencephalopathy (PML),https://aidsinfo.nih.gov/guidelines/html/5/pediatric-opportunistic-infection/416/progressive-multifocal-leukoencephalopathy
+La Crosse Encephalitis,https://www.cdc.gov/lac/index.html
+Lassa Fever,https://www.cdc.gov/vhf/lassa/index.html
+BCYE,https://en.wikipedia.org/wiki/Buffered_charcoal_yeast_extract_agar
+Legionnaires' Disease,https://www.cdc.gov/legionella/about/signs-symptoms.html
+Cutaneous Leishmaniasis,https://www.cdc.gov/parasites/leishmaniasis/health_professionals/index.html
+Leptospirosis,https://www.cdc.gov/leptospirosis/index.html
+Listeria (Medscape),https://emedicine.medscape.com/article/965841-overview
+Measles,https://www.cdc.gov/measles/index.html
+Koplik spots,https://upload.wikimedia.org/wikipedia/commons/6/6b/Koplik_spots%2C_measles_6111_lores.jpg
+Lesion: Central ulceration,https://upload.wikimedia.org/wikipedia/commons/a/a4/Molluscaklein.jpg
+MMR vaccine,https://www.cdc.gov/vaccines/hcp/vis/vis-statements/mmr.html
+Micobacerium Avium Complex (MAC) -> Infection with 3+ micobacterium species,https://emedicine.medscape.com/article/222664-overview?pa=VM3FIWT2Wcc09Ri4xPjzCmFqLor85acsEugcGID93ntNCN4O9jA60gG7V3vok%2FE043mU9jD%2B1DtnxY47OmyybA%3D%3D
+Reticuloendothelial spread,https://en.wikipedia.org/wiki/Mononuclear_phagocyte_system
+"Fish tank granuloma -> Soft skin papules, pustules and ulcers",https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3401166/figure/pone-0041296-g001/
+BCG vaccine,https://www.cdc.gov/tb/publications/factsheets/prevention/bcg.htm
+Tuberculosis,https://www.cdc.gov/tb/default.htm
+Miliary tuberculosis,https://emedicine.medscape.com/article/221777-overview
+Ghon complex,https://en.wikipedia.org/wiki/Ghon%27s_complex
+Airborne -> N95 and airborne precautions,https://www.cdc.gov/infectioncontrol/basics/transmission-based-precautions.html
+"""Fried egg"" colonies",https://www.researchgate.net/profile/Magdy_Amin2/publication/269774822/figure/fig1/AS:295222052442117@1447397830616/Mycoplasma-colonies-with-fried-egg-appearance.png
+Cold Agglutinin Disease -> Autoimmune hemolytic anemia caused by cold-reacting autoantibodies,https://emedicine.medscape.com/article/135327-overview
+"Meningococcal vaccine -> MCV4, tretravalent conjugate vaccine",https://www.cdc.gov/vaccines/vpd/mening/index.html
+Bioterrorism agent,https://www.emergency.cdc.gov/agent/agentlist-category.asp
+Nocardiosis,https://www.cdc.gov/nocardiosis/
+Norovirus food poisoning,https://www.cdc.gov/norovirus/index.html
+Onchocerciasis -> River Blindness,https://www.cdc.gov/parasites/onchocerciasis/index.html
+Scrub typhus,https://www.cdc.gov/typhus/scrub/index.html
+Slapped cheek rash (maculopapular),https://phil.cdc.gov/details.aspx?pid=4509
+Fifth disease -> Erythema infectiosum,https://www.cdc.gov/parvovirusb19/fifth-disease.html
+Malaria,https://www.cdc.gov/malaria/
+Microscopy (thick and thin),https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Blood_film_01.jpg/1200px-Blood_film_01.jpg
+Trophozoite -> Band form,https://wwwnc.cdc.gov/eid/article/10/12/04-0293-f1
+Schuffner's dots,https://en.wikipedia.org/wiki/Schüffner%27s_dots
+Trichuriasis,https://www.cdc.gov/parasites/whipworm/
+Polio,https://www.cdc.gov/polio/
+Salk (IPV) -> Inactivated,https://www.cdc.gov/vaccines/vpd/polio/index.html
+Creutzfeldt-Jakob Disease,https://www.cdc.gov/prions/cjd/index.html
+Kuru,https://en.wikipedia.org/wiki/Kuru_(disease)
+Variant Creutzfeldt-Jakob Disease,https://www.cdc.gov/prions/vcjd/index.html
+Gerstmann-Streussler-Shanker Disease,https://en.wikipedia.org/wiki/Gerstmann–Sträussler–Scheinker_syndrome
+Fatal Familial Insomnia,https://en.wikipedia.org/wiki/Fatal_familial_insomnia
+Negri bodies -> Eosinophilic inclusions,https://en.wikipedia.org/wiki/Negri_bodies
+Rabies vaccine,https://www.cdc.gov/rabies/medical_care/vaccine.html
+Epidemic Typhus,https://www.cdc.gov/typhus/epidemic/index.html
+Endemic/Murine typhus,https://www.cdc.gov/typhus/murine/index.html
+Rocky Mountain Spotted Fever (RMSF),https://www.cdc.gov/rmsf/index.html
+Rotavirus Vaccine -> Increased risk for intussusception,https://www.cdc.gov/rotavirus/vaccination.html
+Rubella/German Measles,https://www.cdc.gov/rubella/index.html
+Blueberry muffin spots,https://dermatologyoasis.net/blueberry-muffin-baby
+Severe Acute Respiratory Syndrome (SARS),https://wwwn.cdc.gov/nndss/conditions/severe-acute-respiratory-syndrome-associated-coronavirus-disease/case-definition/2003/07/
+Inactivated Typhoid Vaccine -> IM,https://www.cdc.gov/vaccines/hcp/vis/vis-statements/typhoid.html
+Haematobium: Single spine on end,https://www.cdc.gov/dpdx/schistosomiasis/images/2/S_haematobium_egg_2X2a.jpg
+Mansoni: Single lateral spine,https://upload.wikimedia.org/wikipedia/commons/7/75/Schistosoma_mansoni.jpg
+Smallpox,https://www.cdc.gov/smallpox/index.html
+Smallpox vaccine -> Modified vaccinia Ankara virus,https://www.cdc.gov/smallpox/vaccine-basics/index.html
+Malaria Diagnosis Algorithm,https://drive.google.com/a/usuhs.edu/file/d/1aLlRHgPrRz04Nbc2iF4IAF_Ui6gFpA63/view?usp=sharing
+Bacillary angiomatosis -> Immunocompromised,https://www.hiv.va.gov/images/library/derm-252a.jpg
+Pneumococcal vaccine,https://www.cdc.gov/vaccines/vpd/pneumo/index.html
+Sporotrichosis,https://www.cdc.gov/fungal/diseases/sporotrichosis/index.html
+Saint Louis Encephalitis,https://www.cdc.gov/sle/index.html
+Rat Bite Fever,https://www.cdc.gov/rat-bite-fever/
+"Tonsillitis (""Strep Throat"") -> Centor Criteria",https://www.aafp.org/afp/2009/0301/afp20090301p383-f1.gif
+"Scarlet fever -> 2 days after pharyngitis, sandpaper rash, strawberry tongue",https://www.cdc.gov/features/scarletfever/index.html
+Post-streptococcal glomerulonephritis (PSGN),https://www.cdc.gov/groupastrep/diseases-hcp/post-streptococcal.html
+Impetigo -> Cutaneous crusting (face),https://en.wikipedia.org/wiki/Impetigo
+Toxic Shock Syndrome,https://emedicine.medscape.com/article/169177-overview?pa=UF4hk6V93tg51DOVn6PfnG6SGQ2c1lBboXP4i0XFgwLHUGqlifykGyYfMNwOwMons7CF3wx2Tu1U792SxywYLg%3D%3D#a4
+Strongyloidiasis,https://www.cdc.gov/parasites/strongyloides/gen_info/faqs.html
+Neurocysticercosis,https://www.cdc.gov/parasites/cysticercosis/index.html
+Toxocariasis,https://www.cdc.gov/parasites/toxocariasis/gen_info/faqs.html
+Toxoplasmosis -> Significant in pregnancy,https://www.cdc.gov/parasites/toxoplasmosis/index.html
+Jarisch-Herxheimer reaction,https://en.wikipedia.org/wiki/Jarisch–Herxheimer_reaction
+African Trypanosomiasis/Sleeping Sickness,https://www.cdc.gov/parasites/sleepingsickness/
+Chagas Disease,https://www.cdc.gov/parasites/chagas/
+Chickenpox vaccine,https://www.cdc.gov/chickenpox/vaccination.html
+Shingles vaccine,https://www.cdc.gov/shingles/vaccination.html
+Oral rehydration therapy,https://www.cdc.gov/cholera/treatment/rehydration-therapy.html
+Cholera,https://www.cdc.gov/cholera/index.html
+Hemorrhagic bullae,https://img.medscapestatic.com/pi/meds/ckb/65/27565.jpg
+Western Equine Encephalitis,https://emedicine.medscape.com/article/233568-overview
+Lymphatic filariasis,https://www.cdc.gov/parasites/lymphaticfilariasis/
+Yellow Fever,https://www.cdc.gov/yellowfever/index.html
+"Porphyria Cutanea Tarda (PCT) -> fragile, photosensitive skin forms vesicles & bullae with trauma & sun exposure",https://emedicine.medscape.com/article/1103643-clinical#b2

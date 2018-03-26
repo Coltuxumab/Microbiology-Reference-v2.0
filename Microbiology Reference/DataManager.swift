@@ -34,6 +34,10 @@ struct Related{
     var name: String
     var match: String
 }
+struct Entity{
+    var item: String
+    var important: Bool
+}
 
 class DataManager {
     // MARK: - Core Data stack
@@ -64,6 +68,7 @@ class DataManager {
     static let themeRedColor = UIColor(red: 190/255, green: 58/255, blue: 49/255, alpha: 1)
     static let themeGreyColor = UIColor(red: 110/255, green: 110/255, blue: 110/255, alpha: 1)
     static let themePurpleColor = UIColor(red: 141/255, green: 72/255, blue: 171/255, alpha: 1)
+    static let themeCellHighlightColor = UIColor(red: 224/255, green: 236/255, blue: 244/255, alpha: 1)
     
     static var firstLaunch:Bool = false
     
@@ -97,12 +102,16 @@ class DataManager {
         if self.bugFilter.category_restricted[searchTerm] != nil{
             categoryRestriction = self.bugFilter.category_restricted[searchTerm]!
         }
-        
+        if searchTerm.count == 1 { categoryRestriction = "name" } // If users typr 1 letter, it is almost certainly the species name (i.e. E coli, S pneumo, H flu)
         
         let fetchRequest: NSFetchRequest<Bugs> = Bugs.fetchRequest()
         // BEGIN NAME
         if categoryRestriction == "all" || categoryRestriction == "name"{
-            fetchRequest.predicate = NSPredicate(format:"name BEGINSWITH[cd] %@ OR name BEGINSWITH[cd] %@", searchTerm, acronymSearchTerm)
+            if searchTerm.count == 1{ // Expecting species name
+                fetchRequest.predicate = NSPredicate(format:"name BEGINSWITH[cd] %@ OR name BEGINSWITH[cd] %@", searchTerm, acronymSearchTerm)
+            } else{
+                fetchRequest.predicate = NSPredicate(format:"name CONTAINS[cd] %@ OR name CONTAINS[cd] %@", searchTerm, acronymSearchTerm)
+            }
             do {
                 let diseases = try DataManager.context.fetch(fetchRequest)
                 for bug in diseases{
@@ -182,26 +191,26 @@ class DataManager {
             } catch { if DataManager.debug{ print("Could not get Bugs!") } }
         }
         // END GRAMSTAIN
-        // BEGIN KEYPOINTS
-        if categoryRestriction == "all" || categoryRestriction == "keypoints"{
-            fetchRequest.predicate = NSPredicate(format:"ANY related_keypoints.name CONTAINS[cd] %@ OR ANY related_keypoints.name CONTAINS[cd] %@", searchTerm, acronymSearchTerm)
+        // BEGIN TRANSMISSION
+        if categoryRestriction == "all" || categoryRestriction == "transmission"{
+            fetchRequest.predicate = NSPredicate(format:"ANY related_transmission.name CONTAINS[cd] %@ OR ANY related_transmission.name CONTAINS[cd] %@", searchTerm, acronymSearchTerm)
             do {
                 let diseases = try DataManager.context.fetch(fetchRequest)
                 for bug in diseases{
                     if !bugElementShell.contains(where: {$0.name == bug.name} ){
                         // Create Element
-                        let bugElement = BugElement(rank: 5, name: bug.name, match: Set(["Key Points"])) // Initialize struct
+                        let bugElement = BugElement(rank: 5, name: bug.name, match: Set(["Transmission"])) // Initialize struct
                         bugElementShell.append(bugElement)
                     } else{
                         if let index = bugElementShell.index(where: { $0.name == bug.name }) {
                             bugElementShell[index].rank += 5
-                            bugElementShell[index].match.insert("Key Points")
+                            bugElementShell[index].match.insert("Transmission")
                         }
                     }
                 }
             } catch { if DataManager.debug{ print("Could not get Bugs!") } }
         }
-        // END KEYPOINTS
+        // END TRANSMISSION
         // BEGIN LABORATORY
         if categoryRestriction == "all" || categoryRestriction == "laboratory"{
             fetchRequest.predicate = NSPredicate(format:"ANY related_laboratory.name BEGINSWITH[cd] %@ OR ANY related_laboratory.name BEGINSWITH[cd] %@", searchTerm, acronymSearchTerm)
@@ -435,7 +444,7 @@ class DataManager {
                     if types.contains(where: {$0.name?.lowercased() == "bacteria"} ){
                         
                         // Get Morphology
-                        let morphology = bug.related_morphology?.allObjects as! [Morphology]
+                        let morphology = bug.related_morphology?.array as! [Morphology]
                         if !morphology.isEmpty {
                             if morphology.contains(where: {($0.name?.lowercased().contains("cocci"))! && ($0.name?.lowercased().contains("clusters"))!} ){
                                 
@@ -557,7 +566,7 @@ class DataManager {
         } else if fact.contains(" ->"){
             mainItem = fullItem.components(separatedBy: " ->").first!
         } else if fact.contains(": "){
-            mainItem = fullItem.components(separatedBy: ": ").last!
+            mainItem = fullItem.components(separatedBy: ": ").last!.trimmingCharacters(in: .whitespaces)
         }
         
         var relatedAccessoryContainer = [Related]()
@@ -576,66 +585,77 @@ class DataManager {
                 if !diseases.isEmpty{
                     for related in diseases{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let generals = result.related_general?.allObjects as! [General]
                 if !generals.isEmpty{
                     for related in generals{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let gramstains = result.related_gramstain?.allObjects as! [GramStain]
                 if !gramstains.isEmpty{
                     for related in gramstains{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
-                let keypoints = result.related_keypoints?.allObjects as! [KeyPoints]
-                if !keypoints.isEmpty{
-                    for related in keypoints{
+                let transmission = result.related_transmission?.allObjects as! [Transmission]
+                if !transmission.isEmpty{
+                    for related in transmission{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let labs = result.related_laboratory?.allObjects as! [Laboratory]
                 if !labs.isEmpty{
                     for related in labs{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let morphologies = result.related_morphology?.allObjects as! [Morphology]
                 if !morphologies.isEmpty{
                     for related in morphologies{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let preventions = result.related_prevention?.allObjects as! [Prevention]
                 if !preventions.isEmpty{
                     for related in preventions{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let signs = result.related_signs?.allObjects as! [Signs]
                 if !signs.isEmpty{
                     for related in signs{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let sources = result.related_sources?.allObjects as! [Sources]
                 if !sources.isEmpty{
                     for related in sources{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let treatments = result.related_treatment?.allObjects as! [Treatment]
                 if !treatments.isEmpty{
                     for related in treatments{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
                 let types = result.related_type?.allObjects as! [Type]
                 if !types.isEmpty{
                     for related in types{
                         if related.name?.components(separatedBy: " ->").first == mainItem{ webViewAccessory = result.link! }
+                        else if related.name?.components(separatedBy: ": ").last == mainItem{ webViewAccessory = result.link! }
                     }
                 }
             }
@@ -646,16 +666,24 @@ class DataManager {
         if table == "Disease"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_disease.name BEGINSWITH[cd] %@", mainItem)
+            // Match DISEASE
+            let predicate2 = NSPredicate(format:"ANY related_disease.name BEGINSWITH[cd] %@ OR ANY related_disease.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
-                    
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Disease")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_disease?.array as! [Disease]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Disease characteristic"
+                        }
+                    } else{
+                        specific = "Same Disease characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -664,16 +692,25 @@ class DataManager {
         } else if table == "General"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_general.name BEGINSWITH[cd] %@", mainItem)
+            // Match GENERAL
+            let predicate2 = NSPredicate(format:"ANY related_general.name BEGINSWITH[cd] %@ OR ANY related_general.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
+            
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
-                    
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "General")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_general?.array as! [General]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same General characteristic"
+                        }
+                    } else{
+                        specific = "Same General characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -682,7 +719,7 @@ class DataManager {
         } else if table == "Gram Stain"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
+            // Match GRAMSTAIN
             let predicate2 = NSPredicate(format:"ANY related_gramstain.name BEGINSWITH[cd] %@", mainItem)
             fetchRequest2.predicate = predicate2
             
@@ -697,19 +734,27 @@ class DataManager {
             } catch {
                 if DataManager.debug{ print("Could not get related for table: \(table)") }
             }
-        } else if table == "Key Points"{
+        } else if table == "Transmission"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_keypoints.name BEGINSWITH[cd] %@", mainItem)
+            // Match TRANSMISSION
+            let predicate2 = NSPredicate(format:"ANY related_transmission.name BEGINSWITH[cd] %@ OR ANY related_transmission.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
-                    
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Key Points")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_transmission?.array as! [Transmission]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Transission characteristic"
+                        }
+                    } else{
+                        specific = "Same Transmission characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -718,16 +763,24 @@ class DataManager {
         } else if table == "Laboratory"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_laboratory.name BEGINSWITH[cd] %@", mainItem)
+            // Match LABORATORY
+            let predicate2 = NSPredicate(format:"ANY related_laboratory.name BEGINSWITH[cd] %@ OR ANY related_laboratory.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
-                    
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Laboratory")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_laboratory?.array as! [Laboratory]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Laboratory characteristic"
+                        }
+                    } else{
+                        specific = "Same Laboratory characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -736,16 +789,25 @@ class DataManager {
         } else if table == "Morphology"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_morphology.name BEGINSWITH[cd] %@ OR related_morphology.name contains %@", mainItem, self.convertAcronyms(searchTerm: mainItem))
+            // Match MORPHOLOGY
+            let predicate2 = NSPredicate(format:"ANY related_morphology.name BEGINSWITH[cd] %@ OR ANY related_morphology.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
                     
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Morphology")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_morphology?.array as! [Morphology]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Morphological characteristic"
+                        }
+                    } else{
+                        specific = "Same Morphological characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -754,16 +816,25 @@ class DataManager {
         } else if table == "Prevention"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_prevention.name BEGINSWITH[cd] %@", mainItem)
+            // Match PREVENTION
+            let predicate2 = NSPredicate(format:"ANY related_prevention.name BEGINSWITH[cd] %@ OR ANY related_prevention.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
                     
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Prevention")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_prevention?.array as! [Prevention]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Prevention characteristic"
+                        }
+                    } else{
+                        specific = "Same Prevention characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -772,16 +843,25 @@ class DataManager {
         } else if table == "Signs"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_signs.name BEGINSWITH[cd] %@", mainItem)
+            // Match SIGNS
+            let predicate2 = NSPredicate(format:"ANY related_signs.name BEGINSWITH[cd] %@ OR ANY related_signs.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
                     
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Signs")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_signs?.array as! [Signs]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Sign characteristic"
+                        }
+                    } else{
+                        specific = "Same Sign characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -790,16 +870,25 @@ class DataManager {
         } else if table == "Treatment"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
-            let predicate2 = NSPredicate(format:"ANY related_treatments.name BEGINSWITH[cd] %@", mainItem)
+            // Match TREATMENTS
+            let predicate2 = NSPredicate(format:"ANY related_treatments.name BEGINSWITH[cd] %@ OR ANY related_treatments.name ENDSWITH[cd] %@", mainItem, mainItem)
             fetchRequest2.predicate = predicate2
             
             do {
                 let bugs = try DataManager.context.fetch(fetchRequest2)
                 for bug in bugs{
                     
-                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: "Treatment")) }
-                    //print("Related: \(bug.name)")
+                    var specific = (bug.related_treatments?.array as! [Treatment]).filter{($0.name?.contains(mainItem))!}.first?.name
+                    if let result_num = specific?.components(separatedBy: "-> ").count{
+                        if result_num > 1{
+                            specific = specific?.components(separatedBy: "-> ").last
+                        } else{
+                            specific = "Same Treatment characteristic"
+                        }
+                    } else{
+                        specific = "Same Treatment characteristic"
+                    }
+                    if bug.name != name{ relatedAccessoryContainer.append(Related(name: bug.name, match: specific!)) }
                     
                 }
             } catch {
@@ -808,7 +897,7 @@ class DataManager {
         } else if table == "Type"{
             let fetchRequest2: NSFetchRequest<Bugs> = Bugs.fetchRequest()
             
-            // Match disease
+            // Match TYPE
             let predicate2 = NSPredicate(format:"ANY related_type.name BEGINSWITH[cd] %@", mainItem)
             fetchRequest2.predicate = predicate2
             
@@ -924,11 +1013,11 @@ class DataManager {
         return acronyms
     }
     
-    static func getSingleBug(bugName:String, completion: @escaping ((_ headers:[String], _ data:[[String]])->())) {
+    static func getSingleBug(bugName:String, completion: @escaping ((_ headers:[String], _ data:[[Entity]])->())) {
         
         var headersShell:[String] = []
-        var bugDataShell:[[String]] = []
-        var entityShell:[String] = []
+        var bugDataShell:[[Entity]] = []
+        var entityShell:[Entity] = []
         
         let fetchRequest: NSFetchRequest<Bugs> = Bugs.fetchRequest()
         
@@ -948,29 +1037,39 @@ class DataManager {
                 if !types.isEmpty {
                     headersShell.append("Type")
                     innerLoop: for type in types{
-                        entityShell.append(type.name!)
+                        //entityShell.append(type.name!)
+                        entityShell.append(Entity(item: type.name!, important: false))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
-                // Get KeyPoints
-                let keypoints = bug.related_keypoints?.allObjects as! [KeyPoints]
-                if !keypoints.isEmpty {
-                    headersShell.append("Key Points")
-                    innerLoop: for kp in keypoints{
-                        entityShell.append(kp.name!)
+                // Get Transmission
+                let transmission = bug.related_transmission?.array as! [Transmission]
+                if !transmission.isEmpty {
+                    headersShell.append("Transmission")
+                    innerLoop: for tm in transmission{
+                        var important:Bool = false
+                        if tm.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: tm.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get General
-                let general = bug.related_general?.allObjects as! [General]
+                let general = bug.related_general?.array as! [General]
                 if !general.isEmpty {
                     headersShell.append("General")
                     innerLoop: for gen in general{
-                        entityShell.append(gen.name!)
+                        //entityShell.append(gen.name!)
+                        var important:Bool = false
+                        if gen.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: gen.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
@@ -981,84 +1080,112 @@ class DataManager {
                 if !gramstain.isEmpty {
                     headersShell.append("Gram Stain")
                     innerLoop: for gs in gramstain{
-                        entityShell.append(gs.name!)
+                        //entityShell.append(gs.name!)
+                        entityShell.append(Entity(item: gs.name!, important: false))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Morphology
-                let morphology = bug.related_morphology?.allObjects as! [Morphology]
+                let morphology = bug.related_morphology?.array as! [Morphology]
                 if !morphology.isEmpty {
                     headersShell.append("Morphology")
                     innerLoop: for morph in morphology{
-                        entityShell.append(morph.name!)
+                        //entityShell.append(morph.name!)
+                        entityShell.append(Entity(item: morph.name!, important: false))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Laboratory
-                let laboratory = bug.related_laboratory?.allObjects as! [Laboratory]
+                let laboratory = bug.related_laboratory?.array as! [Laboratory]
                 if !laboratory.isEmpty {
                     headersShell.append("Laboratory")
                     innerLoop: for lab in laboratory{
-                        entityShell.append(lab.name!)
+                        //entityShell.append(lab.name!)
+                        var important:Bool = false
+                        if lab.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: lab.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Treatment
-                let treatment = bug.related_treatments?.allObjects as! [Treatment]
+                let treatment = bug.related_treatments?.array as! [Treatment]
                 if !treatment.isEmpty {
                     headersShell.append("Treatment")
                     innerLoop: for tx in treatment{
-                        entityShell.append(tx.name!)
+                        //entityShell.append(tx.name!)
+                        var important:Bool = false
+                        if tx.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: tx.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Prevention
-                let prevention = bug.related_prevention?.allObjects as! [Prevention]
+                let prevention = bug.related_prevention?.array as! [Prevention]
                 if !prevention.isEmpty {
                     headersShell.append("Prevention")
                     innerLoop: for prevent in prevention{
-                        entityShell.append(prevent.name!)
+                        //entityShell.append(prevent.name!)
+                        var important:Bool = false
+                        if prevent.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: prevent.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Disease
-                let disease = bug.related_disease?.allObjects as! [Disease]
+                let disease = bug.related_disease?.array as! [Disease]
                 if !disease.isEmpty {
                     headersShell.append("Disease")
                     innerLoop: for dz in disease{
-                        entityShell.append(dz.name!)
+                        //entityShell.append(dz.name!)
+                        var important:Bool = false
+                        if dz.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: dz.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Signs
-                let signs = bug.related_signs?.allObjects as! [Signs]
+                let signs = bug.related_signs?.array as! [Signs]
                 if !signs.isEmpty {
                     headersShell.append("Signs")
                     innerLoop: for sign in signs{
-                        entityShell.append(sign.name!)
+                        //entityShell.append(sign.name!)
+                        var important:Bool = false
+                        if sign.important{
+                            important = true
+                        }
+                        entityShell.append(Entity(item: sign.name!, important: important))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
                 }
                 
                 // Get Related
-                let related = bug.related_entity?.allObjects as! [RelatedEntity]
+                let related = bug.related_entity?.array as! [RelatedEntity]
                 if !related.isEmpty {
                     headersShell.append("Related")
                     innerLoop: for relate in related{
-                        entityShell.append(relate.name!)
+                        //entityShell.append(relate.name!)
+                        entityShell.append(Entity(item: relate.name!, important: false))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
@@ -1069,7 +1196,8 @@ class DataManager {
                 if !sources.isEmpty {
                     headersShell.append("Sources")
                     innerLoop: for source in sources{
-                        entityShell.append(source.name!)
+                        //entityShell.append(source.name!)
+                        entityShell.append(Entity(item: source.name!, important: false))
                     }
                     bugDataShell.append(entityShell)
                     entityShell.removeAll()
@@ -1161,7 +1289,7 @@ class DataManager {
                 var bugDisease:String = "DefaultDisease"
                 var bugGeneral:String = "DefaultGeneral"
                 var bugGramStain:String = "DefaultGramStain"
-                var bugKeyPoints:String = "DefaultKeyPoints"
+                var bugTransmission:String = "DefaultTransmission"
                 var bugLaboratory:String = "DefaultLaboratory"
                 var bugMorphology:String = "DefaultMorphology"
                 var bugPrevention:String = "DefaultPrevention"
@@ -1179,8 +1307,8 @@ class DataManager {
                         bugGeneral = value
                     } else if attributes == "Gram Stain"{
                         bugGramStain = value
-                    } else if attributes == "Key Points"{
-                        bugKeyPoints = value
+                    } else if attributes == "Transmission"{
+                        bugTransmission = value
                     } else if attributes == "Laboratory"{
                         bugLaboratory = value
                     } else if attributes == "Morphology"{
@@ -1209,7 +1337,12 @@ class DataManager {
                     let valueArray:[String] = bugDisease.components(separatedBy: "; ")
                     for singleValue in valueArray{
                         let disease = Disease(context: DataManager.context)
-                        disease.name = singleValue
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            disease.important = true
+                        }
+                        disease.name = name
                         let related_bug = disease.mutableSetValue(forKey: "related_bug")
                         related_bug.add(bugs)
                     }
@@ -1218,7 +1351,12 @@ class DataManager {
                     let valueArray:[String] = bugGeneral.components(separatedBy: "; ")
                     for singleValue in valueArray{
                         let general = General(context: DataManager.context)
-                        general.name = singleValue
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            general.important = true
+                        }
+                        general.name = name
                         let related_bug = general.mutableSetValue(forKey: "related_bug")
                         related_bug.add(bugs)
                     }
@@ -1232,20 +1370,30 @@ class DataManager {
                         related_gramstain.add(bugs)
                     }
                 }
-                if bugKeyPoints != "DefaultKeyPoints"{
-                    let valueArray:[String] = bugKeyPoints.components(separatedBy: "; ")
+                if bugTransmission != "DefaultTransmission"{
+                    let valueArray:[String] = bugTransmission.components(separatedBy: "; ")
                     for singleValue in valueArray{
-                        let keypoints = KeyPoints(context: DataManager.context)
-                        keypoints.name = singleValue
-                        let related_keypoints = keypoints.mutableSetValue(forKey: "related_bug")
-                        related_keypoints.add(bugs)
+                        let transmission = Transmission(context: DataManager.context)
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            transmission.important = true
+                        }
+                        transmission.name = name
+                        let related_transmission = transmission.mutableSetValue(forKey: "related_bug")
+                        related_transmission.add(bugs)
                     }
                 }
                 if bugLaboratory != "DefaultLaboratory"{
                     let valueArray:[String] = bugLaboratory.components(separatedBy: "; ")
                     for singleValue in valueArray{
                         let laboratory = Laboratory(context: DataManager.context)
-                        laboratory.name = singleValue
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            laboratory.important = true
+                        }
+                        laboratory.name = name
                         let related_laboratory = laboratory.mutableSetValue(forKey: "related_bug")
                         related_laboratory.add(bugs)
                     }
@@ -1263,7 +1411,12 @@ class DataManager {
                     let valueArray:[String] = bugPrevention.components(separatedBy: "; ")
                     for singleValue in valueArray{
                         let prevention = Prevention(context: DataManager.context)
-                        prevention.name = singleValue
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            prevention.important = true
+                        }
+                        prevention.name = name
                         let related_prevention = prevention.mutableSetValue(forKey: "related_bug")
                         related_prevention.add(bugs)
                     }
@@ -1272,7 +1425,12 @@ class DataManager {
                     let valueArray:[String] = bugSigns.components(separatedBy: "; ")
                     for singleValue in valueArray{
                         let signs = Signs(context: DataManager.context)
-                        signs.name = singleValue
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            signs.important = true
+                        }
+                        signs.name = name
                         let related_signs = signs.mutableSetValue(forKey: "related_bug")
                         related_signs.add(bugs)
                     }
@@ -1290,7 +1448,12 @@ class DataManager {
                     let valueArray:[String] = bugTreatment.components(separatedBy: "; ")
                     for singleValue in valueArray{
                         let treatment = Treatment(context: DataManager.context)
-                        treatment.name = singleValue
+                        var name = singleValue
+                        if singleValue.hasPrefix("[i]"){
+                            name = String(name.dropFirst(3))
+                            treatment.important = true
+                        }
+                        treatment.name = name
                         let related_treatment = treatment.mutableSetValue(forKey: "related_bug")
                         related_treatment.add(bugs)
                     }
@@ -1348,8 +1511,8 @@ class DataManager {
                     }
                 } catch { if DataManager.debug{ print("Could not relate link.") } }
                 
-                // RELATE LINKS: Key Points
-                let fetchRequest2: NSFetchRequest<KeyPoints> = KeyPoints.fetchRequest()
+                // RELATE LINKS: Transmission
+                let fetchRequest2: NSFetchRequest<Transmission> = Transmission.fetchRequest()
                 let predicate2 = NSPredicate(format:"name beginswith[cd] %@", itemName)
                 fetchRequest2.predicate = predicate2
                 do {
@@ -1707,7 +1870,7 @@ class DataManager {
             DataManager.deleteAllObjects(table: "disease")
             DataManager.deleteAllObjects(table: "general")
             DataManager.deleteAllObjects(table: "gramstain")
-            DataManager.deleteAllObjects(table: "keypoints")
+            DataManager.deleteAllObjects(table: "transmission")
             DataManager.deleteAllObjects(table: "laboratory")
             DataManager.deleteAllObjects(table: "morphology")
             DataManager.deleteAllObjects(table: "prevention")
@@ -1735,46 +1898,6 @@ class DataManager {
                     completion()
                 }
             }
-//        case ("disease", "external"):
-//            downloadDisease(){ () -> () in
-//                orchestrateUpdates(table: "laboratory", dataSource: "external"){ () -> () in
-//                    // Complete
-//                    DataManager.saveContext()
-//                    completion()
-//                }
-//            }
-//        case ("laboratory", "external"):
-//            downloadLaboratory(){ () -> () in
-//                orchestrateUpdates(table: "signs", dataSource: "external"){ () -> () in
-//                    // Complete
-//                    DataManager.saveContext()
-//                    completion()
-//                }
-//            }
-//        case ("signs", "external"):
-//            downloadSigns(){ () -> () in
-//                orchestrateUpdates(table: "sources", dataSource: "external"){ () -> () in
-//                    // Complete
-//                    DataManager.saveContext()
-//                    completion()
-//                }
-//            }
-//        case ("sources", "external"):
-//            downloadSources(){ () -> () in
-//                orchestrateUpdates(table: "treatment", dataSource: "external"){ () -> () in
-//                    // Complete
-//                    DataManager.saveContext()
-//                    completion()
-//                }
-//            }
-//        case ("treatment", "external"):
-//            downloadTreatment(){ () -> () in
-//                orchestrateUpdates(table: "definitions", dataSource: "external"){ () -> () in
-//                    // Complete
-//                    DataManager.saveContext()
-//                    completion()
-//                }
-//            }
         case ("definitions", "external"):
             downloadDefinitions(){ () -> () in
                 orchestrateUpdates(table: "phrases", dataSource: "external"){ () -> () in
@@ -1932,8 +2055,8 @@ class DataManager {
             } catch {
                 if DataManager.debug{ print("Could not get table: \(table).") }
             }
-        case "keypoints":
-            let fetchRequest: NSFetchRequest<KeyPoints> = KeyPoints.fetchRequest()
+        case "transmission":
+            let fetchRequest: NSFetchRequest<Transmission> = Transmission.fetchRequest()
             do {
                 let table = try DataManager.context.fetch(fetchRequest)
                 for object in table{

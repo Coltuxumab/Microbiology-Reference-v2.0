@@ -1,8 +1,8 @@
 //
-//  KeyPoints+CoreDataProperties.swift
+//  Transmission+CoreDataProperties.swift
 //  Microbiology Reference
 //
-//  Created by Cole Denkensohn on 3/4/18.
+//  Created by Cole Denkensohn on 3/15/18.
 //  Copyright © 2018 Denkensohn. All rights reserved.
 //
 //
@@ -11,20 +11,21 @@ import Foundation
 import CoreData
 
 
-extension KeyPoints {
+extension Transmission {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<KeyPoints> {
-        return NSFetchRequest<KeyPoints>(entityName: "KeyPoints")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Transmission> {
+        return NSFetchRequest<Transmission>(entityName: "Transmission")
     }
 
     @NSManaged public var name: String?
+    @NSManaged public var important: Bool
     @NSManaged public var related_bug: NSSet?
     @NSManaged public var related_link: Links?
 
 }
 
 // MARK: Generated accessors for related_bug
-extension KeyPoints {
+extension Transmission {
 
     @objc(addRelated_bugObject:)
     @NSManaged public func addToRelated_bug(_ value: Bugs)

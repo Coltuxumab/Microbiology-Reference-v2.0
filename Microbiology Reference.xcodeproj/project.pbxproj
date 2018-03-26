@@ -26,7 +26,9 @@
 		ED5E5A672046389A005343FE /* Data_Definitions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5E5A5F2046389A005343FE /* Data_Definitions+CoreDataProperties.swift */; };
 		ED5E5A6B20463BC0005343FE /* phrases.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED5E5A6A20463BBF005343FE /* phrases.csv */; };
 		ED5E5A6D20463BD6005343FE /* category_restricted.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED5E5A6C20463BD6005343FE /* category_restricted.csv */; };
-		ED5E5A6F20463BEA005343FE /* acronyms.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED5E5A6E20463BEA005343FE /* acronyms.csv */; };
+		ED6CD87920629289000B3FE0 /* acronyms.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED6CD87820629289000B3FE0 /* acronyms.csv */; };
+		ED6CD87B206292A2000B3FE0 /* links.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED6CD87A206292A2000B3FE0 /* links.csv */; };
+		ED6CD87D206292B1000B3FE0 /* bugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED6CD87C206292B1000B3FE0 /* bugs.csv */; };
 		ED75FC661FC783CA0001FBD6 /* Settings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC4A1FC783CA0001FBD6 /* Settings+CoreDataClass.swift */; };
 		ED75FC671FC783CA0001FBD6 /* Settings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC4B1FC783CA0001FBD6 /* Settings+CoreDataProperties.swift */; };
 		ED75FC681FC783CA0001FBD6 /* Morphology+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC4C1FC783CA0001FBD6 /* Morphology+CoreDataClass.swift */; };
@@ -35,8 +37,6 @@
 		ED75FC6B1FC783CA0001FBD6 /* Bugs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC4F1FC783CA0001FBD6 /* Bugs+CoreDataProperties.swift */; };
 		ED75FC6C1FC783CA0001FBD6 /* Treatment+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC501FC783CA0001FBD6 /* Treatment+CoreDataClass.swift */; };
 		ED75FC6D1FC783CA0001FBD6 /* Treatment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC511FC783CA0001FBD6 /* Treatment+CoreDataProperties.swift */; };
-		ED75FC6E1FC783CA0001FBD6 /* KeyPoints+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC521FC783CA0001FBD6 /* KeyPoints+CoreDataClass.swift */; };
-		ED75FC6F1FC783CA0001FBD6 /* KeyPoints+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC531FC783CA0001FBD6 /* KeyPoints+CoreDataProperties.swift */; };
 		ED75FC701FC783CA0001FBD6 /* Signs+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC541FC783CA0001FBD6 /* Signs+CoreDataClass.swift */; };
 		ED75FC711FC783CA0001FBD6 /* Signs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC551FC783CA0001FBD6 /* Signs+CoreDataProperties.swift */; };
 		ED75FC721FC783CA0001FBD6 /* Sources+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC561FC783CA0001FBD6 /* Sources+CoreDataClass.swift */; };
@@ -53,6 +53,9 @@
 		ED75FC7F1FC783CA0001FBD6 /* GramStain+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC631FC783CA0001FBD6 /* GramStain+CoreDataProperties.swift */; };
 		ED75FC801FC783CA0001FBD6 /* Prevention+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC641FC783CA0001FBD6 /* Prevention+CoreDataClass.swift */; };
 		ED75FC811FC783CA0001FBD6 /* Prevention+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED75FC651FC783CA0001FBD6 /* Prevention+CoreDataProperties.swift */; };
+		ED77B8A62055BEDA00838F71 /* Transmission+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77B8A42055BEDA00838F71 /* Transmission+CoreDataClass.swift */; };
+		ED77B8A72055BEDA00838F71 /* Transmission+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED77B8A52055BEDA00838F71 /* Transmission+CoreDataProperties.swift */; };
+		ED911DAB2055FF200077FE09 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = ED911DAA2055FF200077FE09 /* README.txt */; };
 		ED99C7801FB8FB33005ECC6D /* PopoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99C77F1FB8FB32005ECC6D /* PopoverTableViewController.swift */; };
 		ED99C7821FB916E7005ECC6D /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99C7811FB916E7005ECC6D /* WebViewController.swift */; };
 		ED99C7841FB9174C005ECC6D /* ReachabilityStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED99C7831FB9174C005ECC6D /* ReachabilityStatus.swift */; };
@@ -69,8 +72,6 @@
 		EDC9CE77203B228100A829F9 /* RelatedEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC9CE75203B228100A829F9 /* RelatedEntity+CoreDataProperties.swift */; };
 		EDD878BA204C3DDF009BE1D5 /* Links+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD878B8204C3DDF009BE1D5 /* Links+CoreDataClass.swift */; };
 		EDD878BB204C3DDF009BE1D5 /* Links+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD878B9204C3DDF009BE1D5 /* Links+CoreDataProperties.swift */; };
-		EDD878BD204C48C4009BE1D5 /* links.csv in Resources */ = {isa = PBXBuildFile; fileRef = EDD878BC204C48C4009BE1D5 /* links.csv */; };
-		EDD878BF204C48FA009BE1D5 /* bugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = EDD878BE204C48FA009BE1D5 /* bugs.csv */; };
 		EDEC15551FFC33D40085DC24 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEC15541FFC33D40085DC24 /* TutorialViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +108,9 @@
 		ED5E5A5F2046389A005343FE /* Data_Definitions+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data_Definitions+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED5E5A6A20463BBF005343FE /* phrases.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = phrases.csv; sourceTree = "<group>"; };
 		ED5E5A6C20463BD6005343FE /* category_restricted.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = category_restricted.csv; sourceTree = "<group>"; };
-		ED5E5A6E20463BEA005343FE /* acronyms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acronyms.csv; sourceTree = "<group>"; };
+		ED6CD87820629289000B3FE0 /* acronyms.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = acronyms.csv; sourceTree = "<group>"; };
+		ED6CD87A206292A2000B3FE0 /* links.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = links.csv; sourceTree = "<group>"; };
+		ED6CD87C206292B1000B3FE0 /* bugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bugs.csv; sourceTree = "<group>"; };
 		ED75FC4A1FC783CA0001FBD6 /* Settings+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ED75FC4B1FC783CA0001FBD6 /* Settings+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Settings+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED75FC4C1FC783CA0001FBD6 /* Morphology+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Morphology+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -116,8 +119,6 @@
 		ED75FC4F1FC783CA0001FBD6 /* Bugs+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bugs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED75FC501FC783CA0001FBD6 /* Treatment+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Treatment+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ED75FC511FC783CA0001FBD6 /* Treatment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Treatment+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		ED75FC521FC783CA0001FBD6 /* KeyPoints+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPoints+CoreDataClass.swift"; sourceTree = "<group>"; };
-		ED75FC531FC783CA0001FBD6 /* KeyPoints+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPoints+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED75FC541FC783CA0001FBD6 /* Signs+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signs+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ED75FC551FC783CA0001FBD6 /* Signs+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED75FC561FC783CA0001FBD6 /* Sources+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -134,6 +135,9 @@
 		ED75FC631FC783CA0001FBD6 /* GramStain+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GramStain+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ED75FC641FC783CA0001FBD6 /* Prevention+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Prevention+CoreDataClass.swift"; sourceTree = "<group>"; };
 		ED75FC651FC783CA0001FBD6 /* Prevention+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Prevention+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ED77B8A42055BEDA00838F71 /* Transmission+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transmission+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ED77B8A52055BEDA00838F71 /* Transmission+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transmission+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ED911DAA2055FF200077FE09 /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		ED976B13204C2858000CDC7B /* Micro_Reference 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Micro_Reference 2.xcdatamodel"; sourceTree = "<group>"; };
 		ED99C77F1FB8FB32005ECC6D /* PopoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverTableViewController.swift; sourceTree = "<group>"; };
 		ED99C7811FB916E7005ECC6D /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -153,8 +157,6 @@
 		EDC9CE75203B228100A829F9 /* RelatedEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RelatedEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		EDD878B8204C3DDF009BE1D5 /* Links+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Links+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EDD878B9204C3DDF009BE1D5 /* Links+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Links+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		EDD878BC204C48C4009BE1D5 /* links.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = links.csv; sourceTree = "<group>"; };
-		EDD878BE204C48FA009BE1D5 /* bugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bugs.csv; sourceTree = "<group>"; };
 		EDEC15541FFC33D40085DC24 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,6 +176,8 @@
 		EDA0485F1FB753A300CCA802 = {
 			isa = PBXGroup;
 			children = (
+				ED77B8A42055BEDA00838F71 /* Transmission+CoreDataClass.swift */,
+				ED77B8A52055BEDA00838F71 /* Transmission+CoreDataProperties.swift */,
 				EDD878B8204C3DDF009BE1D5 /* Links+CoreDataClass.swift */,
 				EDD878B9204C3DDF009BE1D5 /* Links+CoreDataProperties.swift */,
 				ED5E5A582046389A005343FE /* Data_CateogryRestricted+CoreDataClass.swift */,
@@ -194,8 +198,6 @@
 				ED75FC4F1FC783CA0001FBD6 /* Bugs+CoreDataProperties.swift */,
 				ED75FC501FC783CA0001FBD6 /* Treatment+CoreDataClass.swift */,
 				ED75FC511FC783CA0001FBD6 /* Treatment+CoreDataProperties.swift */,
-				ED75FC521FC783CA0001FBD6 /* KeyPoints+CoreDataClass.swift */,
-				ED75FC531FC783CA0001FBD6 /* KeyPoints+CoreDataProperties.swift */,
 				ED75FC541FC783CA0001FBD6 /* Signs+CoreDataClass.swift */,
 				ED75FC551FC783CA0001FBD6 /* Signs+CoreDataProperties.swift */,
 				ED75FC561FC783CA0001FBD6 /* Sources+CoreDataClass.swift */,
@@ -213,6 +215,7 @@
 				ED75FC641FC783CA0001FBD6 /* Prevention+CoreDataClass.swift */,
 				ED75FC651FC783CA0001FBD6 /* Prevention+CoreDataProperties.swift */,
 				ED59F73A204D765500DAFB89 /* LICENSE.txt */,
+				ED911DAA2055FF200077FE09 /* README.txt */,
 				ED12DC291FBA95A100FF373B /* CSVImporter.framework */,
 				ED12DC281FBA95A100FF373B /* HandySwift.framework */,
 				EDA0486A1FB753A300CCA802 /* Microbiology Reference */,
@@ -248,12 +251,12 @@
 				EDA048771FB753A300CCA802 /* LaunchScreen.storyboard */,
 				EDA0487A1FB753A300CCA802 /* Info.plist */,
 				EDA048721FB753A300CCA802 /* Microbiology_Reference.xcdatamodeld */,
-				EDD878BE204C48FA009BE1D5 /* bugs.csv */,
-				EDD878BC204C48C4009BE1D5 /* links.csv */,
+				ED6CD87C206292B1000B3FE0 /* bugs.csv */,
+				ED6CD87A206292A2000B3FE0 /* links.csv */,
 				ED3A51332048A76F003FA449 /* definitions.csv */,
 				ED5E5A6A20463BBF005343FE /* phrases.csv */,
 				ED5E5A6C20463BD6005343FE /* category_restricted.csv */,
-				ED5E5A6E20463BEA005343FE /* acronyms.csv */,
+				ED6CD87820629289000B3FE0 /* acronyms.csv */,
 			);
 			path = "Microbiology Reference";
 			sourceTree = "<group>";
@@ -320,13 +323,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED5E5A6B20463BC0005343FE /* phrases.csv in Resources */,
-				EDD878BD204C48C4009BE1D5 /* links.csv in Resources */,
-				ED5E5A6F20463BEA005343FE /* acronyms.csv in Resources */,
-				EDD878BF204C48FA009BE1D5 /* bugs.csv in Resources */,
+				ED6CD87B206292A2000B3FE0 /* links.csv in Resources */,
+				ED911DAB2055FF200077FE09 /* README.txt in Resources */,
 				ED3A51342048A76F003FA449 /* definitions.csv in Resources */,
+				ED6CD87920629289000B3FE0 /* acronyms.csv in Resources */,
 				EDA048791FB753A300CCA802 /* LaunchScreen.storyboard in Resources */,
 				EDA048761FB753A300CCA802 /* Assets.xcassets in Resources */,
 				EDA048711FB753A300CCA802 /* Main.storyboard in Resources */,
+				ED6CD87D206292B1000B3FE0 /* bugs.csv in Resources */,
 				ED59F73B204D765500DAFB89 /* LICENSE.txt in Resources */,
 				ED5E5A6D20463BD6005343FE /* category_restricted.csv in Resources */,
 			);
@@ -359,12 +363,12 @@
 				ED99C7841FB9174C005ECC6D /* ReachabilityStatus.swift in Sources */,
 				ED75FC7A1FC783CA0001FBD6 /* Type+CoreDataClass.swift in Sources */,
 				ED75FC691FC783CA0001FBD6 /* Morphology+CoreDataProperties.swift in Sources */,
-				ED75FC6F1FC783CA0001FBD6 /* KeyPoints+CoreDataProperties.swift in Sources */,
 				ED75FC681FC783CA0001FBD6 /* Morphology+CoreDataClass.swift in Sources */,
 				ED5E5A632046389A005343FE /* Data_Phrases+CoreDataProperties.swift in Sources */,
 				EDA048741FB753A300CCA802 /* Microbiology_Reference.xcdatamodeld in Sources */,
 				ED99C7821FB916E7005ECC6D /* WebViewController.swift in Sources */,
 				EDD878BA204C3DDF009BE1D5 /* Links+CoreDataClass.swift in Sources */,
+				ED77B8A62055BEDA00838F71 /* Transmission+CoreDataClass.swift in Sources */,
 				ED75FC661FC783CA0001FBD6 /* Settings+CoreDataClass.swift in Sources */,
 				ED75FC791FC783CA0001FBD6 /* Disease+CoreDataProperties.swift in Sources */,
 				ED75FC751FC783CA0001FBD6 /* General+CoreDataProperties.swift in Sources */,
@@ -374,7 +378,6 @@
 				ED75FC711FC783CA0001FBD6 /* Signs+CoreDataProperties.swift in Sources */,
 				EDA0486E1FB753A300CCA802 /* MainViewController.swift in Sources */,
 				ED12DC401FBAA3E600FF373B /* DataManager.swift in Sources */,
-				ED75FC6E1FC783CA0001FBD6 /* KeyPoints+CoreDataClass.swift in Sources */,
 				EDA0486C1FB753A300CCA802 /* AppDelegate.swift in Sources */,
 				EDEC15551FFC33D40085DC24 /* TutorialViewController.swift in Sources */,
 				ED75FC6A1FC783CA0001FBD6 /* Bugs+CoreDataClass.swift in Sources */,
@@ -393,6 +396,7 @@
 				ED12DC2D1FBA95C700FF373B /* CSVImport.swift in Sources */,
 				ED5E5A652046389A005343FE /* Data_Acronyms+CoreDataProperties.swift in Sources */,
 				ED75FC7F1FC783CA0001FBD6 /* GramStain+CoreDataProperties.swift in Sources */,
+				ED77B8A72055BEDA00838F71 /* Transmission+CoreDataProperties.swift in Sources */,
 				ED12DC541FBE903900FF373B /* PopupNotificationViewController.swift in Sources */,
 				ED75FC7B1FC783CA0001FBD6 /* Type+CoreDataProperties.swift in Sources */,
 				ED75FC801FC783CA0001FBD6 /* Prevention+CoreDataClass.swift in Sources */,
