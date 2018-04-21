@@ -54,13 +54,13 @@ class DataManager {
     
     static var debug:Bool = false // true = print messages
     
-    static let url_bugs:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=0&single=true&output=csv"
-    static let url_links:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=42956557&single=true&output=csv"
-    static let url_settings:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=1504880105&single=true&output=csv"
-    static let url_definitions:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=2129819201&single=true&output=csv"
-    static let url_phrases:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=358444454&single=true&output=csv"
-    static let url_categoryRestricted:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=192050004&single=true&output=csv"
-    static let url_acronyms:String = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJ6xoXXWy4xpMf8HbGJXu3xrBjZIhTGBNhRGVal7kFiY5ogl5aJBupYX0nstP0vdcbosO3m1cnom9Q/pub?gid=957923301&single=true&output=csv"
+    static let url_bugs:String = "INSERT URL TO CSV"
+    static let url_links:String = "INSERT URL"
+    static let url_settings:String = "INSERT URL"
+    static let url_definitions:String = "INSERT URL"
+    static let url_phrases:String = "INSERT URL"
+    static let url_categoryRestricted:String = "INSERT URL"
+    static let url_acronyms:String = "INSERT URL"
     
     static let themeMainColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     static let themeBackgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
